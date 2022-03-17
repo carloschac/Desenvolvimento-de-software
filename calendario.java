@@ -56,7 +56,8 @@ public class calendario {
          //usando if   
          //usando switch
          System.out.println("Número digitado = " + mes);
-        input.close();
+         System.out.println("Nome do mês (if) = " + mostrarNomeMesIf(mes));
+         input.close();
 
     }
 }
