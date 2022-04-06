@@ -22,7 +22,7 @@ public class Loteria{
 
         } while (contador < numerosEscolhidos.length);
 
-        System.out.println("\n************************************\nSeus números escolhidos foram: ");
+        System.out.println("Seus números escolhidos foram: ");
 
         for (int i = 0; i < numerosEscolhidos.length; i++) {
             System.out.print(+numerosEscolhidos[i]+ "    ");
@@ -39,7 +39,7 @@ public class Loteria{
             dezenas[i] = gerador.nextInt(60)+1;
             System.out.print(dezenas[i] + "    ");
         }
-        System.out.println("\n************************************\n");
+        
 
         int quantidadeDeAcertos = 0;
 
