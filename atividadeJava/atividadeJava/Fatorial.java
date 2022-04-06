@@ -9,22 +9,23 @@ public class Fatorial {
         System.out.println("Digite um número inteiro positivo aqui");
 
         int num = teclado.nextInt();
+        int fat, val;
         teclado.close();
 
-        if (num >= 0) {
-            while (num > 0) {
-                num = num*(num-1)*1;
-                num--;
-                System.out.println(num);
+
+        if (n == 0) {
+
+            System.out.println("O resultado do fatorial é 1.");
+        }else if (n > 0) {
+            val = n;
+            fat = n;
+
+            while (n > 1) {
+                fat = fat*(n-1);
+                n--;
             }
+            System.out.println("O valor fatorial de " + val + " é " + fat);
         }
-
-        else {
-            System.out.println("O número informado não é posítivo tente novamente");
-        }
-
-        if (num == 0) {
-            System.out.println("O resultado do fatorial é um (1).");
-        }
+       
     }
 }

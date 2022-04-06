@@ -10,7 +10,7 @@ public class Adivinhacao {
 
         Boolean acerto = false;
         int tentativa = 10;
-        int numSorteado = gerador.nextInt(100);
+        int numSorteado = gerador.nextInt(101);
         long adivinha = 0;
 
         while (tentativa > 0 && acerto == false) {
