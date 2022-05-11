@@ -1,17 +1,15 @@
-package atividadeJava;
-
 import java.util.Scanner;
 
-public class Fatorial {
-    public static void main(String[] args) {
-        
-        Scanner teclado = new Scanner(System.in);
-        System.out.println("Digite um número inteiro positivo aqui");
+public class fatorial {
+     public static void main(String[] args) {
 
-        int num = teclado.nextInt();
+        Scanner teclado = new Scanner(System.in); 
+        System.out.println("Digite um numero interiro positivo: ");
+
+        int n = teclado.nextInt();
+
         int fat, val;
-        teclado.close();
-
+        teclado.close();            
 
         if (n == 0) {
 
