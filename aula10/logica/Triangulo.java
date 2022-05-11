@@ -1,13 +1,14 @@
-package aula10;
+package aula10.logica;
 
-public class Retangulo extends FormaGeometrica {
+public class Triangulo extends FormaGeometrica {
     private double base;
     private double altura;
-    public Retangulo() {
+
+    public Triangulo() {
 
     }
 
-    public Retangulo(double base, double altura) {
+    public Triangulo(double base, double altura) {
         this.base = base;
         this.altura = altura;
     }
@@ -16,7 +17,7 @@ public class Retangulo extends FormaGeometrica {
         return base;
     }
 
-    public double getAltura(){
+    public double getAltura() {
         return altura;
     }
 
@@ -30,8 +31,12 @@ public class Retangulo extends FormaGeometrica {
 
     @Override
     public double calcularArea() {
-        return (altura*base);
+        return (base*altura/2);
     }
 
-    
+    @Override
+    public String preencherCor() {
+       
+        return "amarelo";
+    }
 }
