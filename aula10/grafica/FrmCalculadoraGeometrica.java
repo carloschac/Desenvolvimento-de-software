@@ -25,13 +25,24 @@ public class FrmCalculadoraGeometrica extends JFrame{
         add(pnl);
         pnl.setLayout(new GridLayout(1, 5, 10, 50));
         pnl.add(new JLabel("Area:"));
-        txtCircunferenciaRaio = new JTextField();
-        pnl.add(txtCircunferenciaRaio);
-        pnl.add(btnCircunferenciaCalcularArea = new JButton("Calcular"));
+        txtRetanguloAltura = new JTextField();
+        pnl.add(txtRetanguloAltura);
+        pnl.add(btnRetanguloCalcularArea = new JButton("Calcular"));
+        pnl.add(new JLabel("Area"));
+        txtRetanguloArea = new JTextField();
+        pnl.add(txtRetanguloArea);
 
         pnl = new JPanel();
         pnl.setBorder(BorderFactory.createTitledBorder("Retangulo"));
         add(pnl);
+        pnl.setLayout(new GridLayout(1, 5, 10, 50));
+        pnl.add(new JLabel("Area:"));
+        txtCircunferenciaRaio = new JTextField();
+        pnl.add(txtCircunferenciaRaio);
+        pnl.add(btnCircunferenciaCalcularArea = new JButton("Calcular"));
+        pnl.add(new JLabel("Area"));
+        txtCircunferenciaArea = new JTextField();
+        pnl.add(txtCircunferenciaArea);
 
         pnl = new JPanel();
         pnl.setBorder(BorderFactory.createTitledBorder("Triangulo"));
