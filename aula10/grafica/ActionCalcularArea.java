@@ -4,6 +4,8 @@ import javax.swing.AbstractAction;
 import javax.swing.JTextField;
 
 import aula10.logica.Circulo;
+import aula10.logica.Retangulo;
+import aula10.logica.Triangulo;
 
 public class ActionCalcularArea extends AbstractAction{
     public enum OpcaoForma{
@@ -39,6 +41,22 @@ public class ActionCalcularArea extends AbstractAction{
                 Circulo circulo = new Circulo(raio);
                 double area = circulo.calcularArea();
                 txtArea.setText(String.format("%f", area));
+                break;
+
+            case RETANGULO:
+                double base = Double.parseDouble(txtBase.getText());
+                double altura = Double.parseDouble(txtAltura.getText());
+                Retangulo retangulo = new Retangulo(base, altura);
+                double areaRetangulo = retangulo.calcularArea();
+                txtArea.setText(String.format("%f", areaRetangulo));
+                break;
+
+                case TRIANGULO:
+                double baseTriangulo = Double.parseDouble(txtBase.getText());
+                double alturaTriangulo = Double.parseDouble(txtAltura.getText());
+                Triangulo triangulo = new Triangulo(baseTriangulo, alturaTriangulo);
+                double areaTriangulo = triangulo.calcularArea();
+                txtArea.setText(String.format("%f", areaTriangulo));
                 break;
     }
 
