@@ -6,7 +6,7 @@ import javax.swing.JTextField;
 import aula10.logica.Circulo;
 
 public class ActionCalcularArea extends AbstractAction{
-    public enum OpcaoForma {
+    public enum OpcaoForma{
         CIRCULO,
         RETANGULO,
         TRIANGULO
@@ -15,18 +15,24 @@ public class ActionCalcularArea extends AbstractAction{
     private JTextField txtRaio;
     private JTextField txtBase;
     private JTextField txtAltura;
+    private JTextField txtArea;
     private OpcaoForma opcaoForma;
 
-    public ActionCalcularArea(JTextField txtRaio, OpcaoForma opcaoForma) {
-            this.txtRaio = txtRaio;
-            this.opcaoForma = opcaoForma;
+    public ActionCalcularArea(JTextField txtRaio, OpcaoForma opcaoForma, JTextField txtArea){
+        this.txtRaio = txtRaio;
+        this.opcaoForma = opcaoForma;
+        this.txtArea = txtArea;
     }
-    public ActionCalcularArea(JTextField txtBase, JTextField txtAltura, OpcaoForma opcaoForma, JTextField txtArea) {
+    public ActionCalcularArea(JTextField txtBase, JTextField txtAltura, OpcaoForma opcaoForma, JTextField txtArea){
         this.txtBase = txtBase;
         this.txtAltura = txtAltura;
+        this.opcaoForma = opcaoForma;
+        this.txtArea = txtArea;    
     }
+    
     @Override
-    public void actionPerfomed(ActionEvent e) {
+    public void actionPerformed(java.awt.event.ActionEvent e) {
+    
         switch (this.opcaoForma) {
             case CIRCULO:
                 double raio = Double.parseDouble(txtRaio.getText());
@@ -34,7 +40,7 @@ public class ActionCalcularArea extends AbstractAction{
                 double area = circulo.calcularArea();
                 txtArea.setText(String.format("%f", area));
                 break;
-        }
     }
 
+}
 }
