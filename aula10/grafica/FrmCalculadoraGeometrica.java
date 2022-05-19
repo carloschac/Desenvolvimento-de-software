@@ -83,7 +83,7 @@ public class FrmCalculadoraGeometrica extends JFrame{
         ActionCalcularArea action1 = new ActionCalcularArea(txtRetanguloBase, txtRetanguloAltura, OpcaoForma.RETANGULO, txtRetanguloArea);
         btnRetanguloCalcularArea.addActionListener(action1);
         
-        ActionCalcularArea action2 = new ActionCalcularArea(txtTrianguloBase, txtTrianguloArea, OpcaoForma.TRIANGULO, txtTrianguloAltura);
+        ActionCalcularArea action2 = new ActionCalcularArea(txtTrianguloBase,txtTrianguloAltura , OpcaoForma.TRIANGULO, txtTrianguloArea);
         btnTrianguloCalcularArea.addActionListener(action2);
         
     }

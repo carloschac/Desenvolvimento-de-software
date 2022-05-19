@@ -51,7 +51,7 @@ public class ActionCalcularArea extends AbstractAction{
                 txtArea.setText(String.format("%f", areaRetangulo));
                 break;
 
-                case TRIANGULO:
+            case TRIANGULO:
                 double baseTriangulo = Double.parseDouble(txtBase.getText());
                 double alturaTriangulo = Double.parseDouble(txtAltura.getText());
                 Triangulo triangulo = new Triangulo(baseTriangulo, alturaTriangulo);
