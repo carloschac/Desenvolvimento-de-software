@@ -1,4 +1,4 @@
-package simon;
+
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -15,10 +15,9 @@ import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.Timer;
 
-public class Simon implements ActionListener, MouseListener
-{
+public class Genius implements ActionListener, MouseListener {
 
-	public static Simon simon;
+	public static Genius genius;
 
 	public Renderer renderer;
 
@@ -34,9 +33,8 @@ public class Simon implements ActionListener, MouseListener
 
 	private boolean gameOver;
 
-	public Simon()
-	{
-		JFrame frame = new JFrame("Simon");
+	public Genius() {
+		JFrame frame = new JFrame("Genius");
 		Timer timer = new Timer(20, this);
 
 		renderer = new Renderer();
@@ -53,8 +51,7 @@ public class Simon implements ActionListener, MouseListener
 		timer.start();
 	}
 
-	public void start()
-	{
+	public void start() {
 		random = new Random();
 		pattern = new ArrayList<Integer>();
 		indexPattern = 0;
@@ -63,48 +60,37 @@ public class Simon implements ActionListener, MouseListener
 		ticks = 0;
 	}
 
-	public static void main(String[] args)
-	{
-		simon = new Simon();
+	public static void main(String[] args) {
+		genius = new Genius();
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e)
-	{
+	public void actionPerformed(ActionEvent e) {
 		ticks++;
 
-		if (ticks % 20 == 0)
-		{
+		if (ticks % 20 == 0) {
 			flashed = 0;
 
-			if (dark >= 0)
-			{
+			if (dark >= 0) {
 				dark--;
 			}
 		}
 
-		if (creatingPattern)
-		{
-			if (dark <= 0)
-			{
-				if (indexPattern >= pattern.size())
-				{
+		if (creatingPattern) {
+			if (dark <= 0) {
+				if (indexPattern >= pattern.size()) {
 					flashed = random.nextInt(40) % 4 + 1;
 					pattern.add(flashed);
 					indexPattern = 0;
 					creatingPattern = false;
-				}
-				else
-				{
+				} else {
 					flashed = pattern.get(indexPattern);
 					indexPattern++;
 				}
 
 				dark = 2;
 			}
-		}
-		else if (indexPattern == pattern.size())
-		{
+		} else if (indexPattern == pattern.size()) {
 			creatingPattern = true;
 			indexPattern = 0;
 			dark = 2;
@@ -113,49 +99,36 @@ public class Simon implements ActionListener, MouseListener
 		renderer.repaint();
 	}
 
-	public void paint(Graphics2D g)
-	{
+	public void paint(Graphics2D g) {
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-		if (flashed == 1)
-		{
+		if (flashed == 1) {
 			g.setColor(Color.GREEN);
-		}
-		else
-		{
+		} else {
 			g.setColor(Color.GREEN.darker());
 		}
 
 		g.fillRect(0, 0, WIDTH / 2, HEIGHT / 2);
 
-		if (flashed == 2)
-		{
+		if (flashed == 2) {
 			g.setColor(Color.RED);
-		}
-		else
-		{
+		} else {
 			g.setColor(Color.RED.darker());
 		}
 
 		g.fillRect(WIDTH / 2, 0, WIDTH / 2, HEIGHT / 2);
 
-		if (flashed == 3)
-		{
+		if (flashed == 3) {
 			g.setColor(Color.ORANGE);
-		}
-		else
-		{
+		} else {
 			g.setColor(Color.ORANGE.darker());
 		}
 
 		g.fillRect(0, HEIGHT / 2, WIDTH / 2, HEIGHT / 2);
 
-		if (flashed == 4)
-		{
+		if (flashed == 4) {
 			g.setColor(Color.BLUE);
-		}
-		else
-		{
+		} else {
 			g.setColor(Color.BLUE.darker());
 		}
 
@@ -177,81 +150,59 @@ public class Simon implements ActionListener, MouseListener
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Arial", 1, 142));
 
-		if (gameOver)
-		{
+		if (gameOver) {
 			g.drawString(":(", WIDTH / 2 - 100, HEIGHT / 2 + 42);
-		}
-		else
-		{
+		} else {
 			g.drawString(indexPattern + "/" + pattern.size(), WIDTH / 2 - 100, HEIGHT / 2 + 42);
 		}
 	}
 
 	@Override
-	public void mousePressed(MouseEvent e)
-	{
+	public void mousePressed(MouseEvent e) {
 		int x = e.getX(), y = e.getY();
 
-		if (!creatingPattern && !gameOver)
-		{
-			if (x > 0 && x < WIDTH / 2 && y > 0 && y < HEIGHT / 2)
-			{
+		if (!creatingPattern && !gameOver) {
+			if (x > 0 && x < WIDTH / 2 && y > 0 && y < HEIGHT / 2) {
 				flashed = 1;
 				ticks = 1;
-			}
-			else if (x > WIDTH / 2 && x < WIDTH && y > 0 && y < HEIGHT / 2)
-			{
+			} else if (x > WIDTH / 2 && x < WIDTH && y > 0 && y < HEIGHT / 2) {
 				flashed = 2;
 				ticks = 1;
-			}
-			else if (x > 0 && x < WIDTH / 2 && y > HEIGHT / 2 && y < HEIGHT)
-			{
+			} else if (x > 0 && x < WIDTH / 2 && y > HEIGHT / 2 && y < HEIGHT) {
 				flashed = 3;
 				ticks = 1;
-			}
-			else if (x > WIDTH / 2 && x < WIDTH && y > HEIGHT / 2 && y < HEIGHT)
-			{
+			} else if (x > WIDTH / 2 && x < WIDTH && y > HEIGHT / 2 && y < HEIGHT) {
 				flashed = 4;
 				ticks = 1;
 			}
 
-			if (flashed != 0)
-			{
-				if (pattern.get(indexPattern) == flashed)
-				{
+			if (flashed != 0) {
+				if (pattern.get(indexPattern) == flashed) {
 					indexPattern++;
-				}
-				else
-				{
+				} else {
 					gameOver = true;
 				}
 			}
-		}
-		else if (gameOver)
-		{
+		} else if (gameOver) {
 			start();
 			gameOver = false;
 		}
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent e)
-	{
+	public void mouseClicked(MouseEvent e) {
 	}
 
 	@Override
-	public void mouseReleased(MouseEvent e)
-	{
+	public void mouseReleased(MouseEvent e) {
 	}
 
 	@Override
-	public void mouseEntered(MouseEvent e)
-	{
+	public void mouseEntered(MouseEvent e) {
 	}
 
 	@Override
-	public void mouseExited(MouseEvent e)
-	{
+	public void mouseExited(MouseEvent e) {
 	}
 
 }
